@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.banner h1 {
+  font-family: "Raleway", sans-serif !important;
+}
+.banner p {
+  font-family: "Raleway", sans-serif !important;
+}
+.navbar li {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+}
+.navbar li {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 16px;
+}
+.navbar .logo {
+  font-family: "Caveat Brush", cursive;
+  font-size: 2rem;
+}
