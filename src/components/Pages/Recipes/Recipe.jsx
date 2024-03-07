@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Recipe = () => {
   // const recipe = useLoaderData();
   // const{id,recipes,r}
+
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/chefs")
+      .then((res) => res.json())
+      .then((data) => setRecipes(data))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <div>
       <div className="card w-96 glass">
