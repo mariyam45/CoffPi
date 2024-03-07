@@ -1,30 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-const Recipe = () => {
+const Recipe = ({ recipe }) => {
   // const recipe = useLoaderData();
   // const{id,recipes,r}
 
-  const [recipes, setRecipes] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/chefs")
-      .then((res) => res.json())
-      .then((data) => setRecipes(data))
-      .catch((error) => console.log(error));
-  }, []);
+  const { id, recipes, picture, name } = recipe;
+  console.log(name);
 
   return (
     <div>
       <div className="card w-96 glass">
         <figure>
-          <img
-            src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-            alt="car!"
-          />
+          <img src={recipes[0].img} alt="car!" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title">Life hack</h2>
-          <p>How to park your car at your garage?</p>
+          <h2 className="card-title">{recipes[0].name}</h2>
+          <p>{name}</p>
           <div className="card-actions justify-end">
             <button className="btn btn-primary">Learn now!</button>
           </div>
