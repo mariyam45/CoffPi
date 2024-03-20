@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+
 import Home from "../Pages/Home/Home";
 import Recipe from "../Pages/Recipes/Recipe";
 import Recipes from "../Pages/Recipes/Recipes";
@@ -12,18 +13,24 @@ const route = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch(`http://localhost:5000/chefs`),
+      },
+      // {
+      //   path: "/chefs",
+      //   element: <Chefs></Chefs>,
+      //   children: [
+
+      //   ],
+      // },
+
+      {
+        path: "/recipes/",
+        element: <Recipes></Recipes>,
+        loader: () => fetch(`http://localhost:5000/chefs`),
       },
       {
-        path: "/recipes",
-        element: <Recipes></Recipes>,
-        children: [
-          {
-            path: ":id",
-            element: <Recipe></Recipe>,
-            loader: ({ params }) =>
-              fetch(`http://localhost:5000/chefs/${params.id}`),
-          },
-        ],
+        path: "/recipes/:id",
+        element: <Recipe></Recipe>,
       },
     ],
   },
